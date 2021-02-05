@@ -3,7 +3,9 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
+const api = require('./routes/api');
 const index = require('./routes')
+require('./database');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
