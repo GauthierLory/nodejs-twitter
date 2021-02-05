@@ -3,8 +3,7 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
-const api = require('./routes/api');
-const index = require('./routes')
+const routing = require('./routes')
 require('./database');
 
 app.set('views', path.join(__dirname, 'views'));
@@ -15,6 +14,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(index);
+app.use(routing);
 
 app.listen(port);

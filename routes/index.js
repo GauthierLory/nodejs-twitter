@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const Chapters = require('../database/models/chapter.model.js');
+
+router.get('/tweet/new', (req, res) => {
+    res.render('tweets/tweet-form')
+})
 
 router.get('/', (req, res) => {
-    Chapters.findOne().exec().then(doc => {
-        res.json(doc);
-    });
+    res.render('tweets/tweet-list')
 })
 
 module.exports = router;
