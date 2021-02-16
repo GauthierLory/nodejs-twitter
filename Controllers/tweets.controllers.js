@@ -1,7 +1,14 @@
-const router = require('express').Router();
-const Tweet = require('../database/models/tweet.model');
+exports.tweetList = (req, res, next) => {
+    Tweet.find({})
+    .exec()
+    .then( tweets => res.render('tweets/tweet-list', { tweets }))
+}
 
-router.post('/', (req, res) => {
+exports.tweetNew = (req, res, next) => {
+    res.render('tweets/tweet-form')
+}
+
+exports.tweetCreate = (req, res, next) => {
     const body = req.body;
     const newTweet = new Tweet(body);
     newTweet.save()
@@ -10,6 +17,4 @@ router.post('/', (req, res) => {
                 const errors = Object.keys(err.errors).map(key => err.errors[key].message);
                 res.status(400).render('tweets/tweet-form', { errors} );
             })
-});
-
-module.exports = router;
+}
