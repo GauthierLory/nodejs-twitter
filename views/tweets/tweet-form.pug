@@ -6,13 +6,13 @@ block content
             .col-start-2.col-span-4
                 h1.text-2xl.font-medium.title-font.mb-4.text-gray-900(class='sm:text-3xl') Ecrire un tweet
                 .relative
-                form(method="POST" action="/api/tweets")
+                form(method="POST" action= tweet._id ? "/tweets/update/" + tweet._id : "/tweets")
                     label.leading-7.text-sm.text-gray-600(for='message') Message
                     if errors
                         ul
                             each error in errors       
                                 label(class="leading-7 text-sm text-red-600")= error
-                    textarea#message.w-full.bg-gray-100.bg-opacity-50.rounded.border.border-gray-300.h-32.text-base.outline-none.text-gray-700.py-1.px-3.resize-none.leading-6.transition-colors.duration-200.ease-in-out(name='content' class='focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200')
+                    textarea#message.w-full.bg-gray-100.bg-opacity-50.rounded.border.border-gray-300.h-32.text-base.outline-none.text-gray-700.py-1.px-3.resize-none.leading-6.transition-colors.duration-200.ease-in-out(name='content' class='focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200')= tweet.content
                     .p-2.w-full
                     button.flex.mx-auto.text-white.bg-indigo-500.border-0.py-2.px-8.rounded.text-lg(class='focus:outline-none hover:bg-indigo-600' type='submit') Button
         

@@ -2,7 +2,7 @@ if tweets
   each tweet in tweets
     section.text-gray-600.body-font.overflow-hidden.container.px-5.py-24.mx-auto.flex.flex-wrap.-m-12.p-12.flex.flex-col.items-start(class='md:w-1/2')
         //- h2.text-2xl.title-font.font-medium.text-gray-900.mt-4.mb-4(class='sm:text-3xl') Roof party normcore before they sold out, cornhole vape
-        p(class="leading-relaxed.mb-8")= tweet.content 
+        a(class="leading-relaxed.mb-8" href="/tweets/edit/" + tweet._id)= tweet.content 
         .flex.items-center.flex-wrap.pb-4.mb-4.border-b-2.border-gray-100.mt-auto.w-full
           span(class="bg-indigo-50.text-indigo-500.text-xs.font-medium.tracking-widest.items-center.ml-auto.leading-none.px-2.py-1")
             button(class="btn-danger text-white bg-red-400 rounded-md p-1" tweetId=tweet._id) Delete
