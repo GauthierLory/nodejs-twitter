@@ -17,9 +17,9 @@ exports.createUser = async (user) => {
 }
 
 exports.findUserPerMail = (email) => {
-    return users.findOne({ 'local.email ': email}).exec();
+    return User.findOne({ 'local.email': email}).exec();
 }
 
 exports.findUserPerId = (id) => {
-    return users.findById(id).exec();
+    return User.findById(id).exec();
 }
