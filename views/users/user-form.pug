@@ -1,0 +1,24 @@
+extends ../layout.pug
+
+block content
+    section.text-gray-600.body-font.relative
+        .grid.grid-cols-6.gap-4.-m-2
+            .col-start-2.col-span-4
+                h1.text-2xl.font-medium.title-font.mb-4.text-gray-900(class='sm:text-3xl') Inscription
+                .relative
+                form(method="POST" action="/users/signup")
+                    if errors
+                        ul
+                            each error in errors
+                                label(class="leading-7 text-sm text-red-600")= error
+                    .relative.mb-4
+                        label.leading-7.text-sm.text-gray-600(for='username') Username
+                        input#name.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='text' name='username' class='focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200')
+                    .relative.mb-4
+                        label.leading-7.text-sm.text-gray-600(for='email') Email
+                        input#email.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='email' name='email' class='focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200')
+                    .relative.mb-4
+                        label.leading-7.text-sm.text-gray-600(for='password') Password
+                        input#email.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='password' name='password' class='focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200')
+                    .p-2.w-full
+                    button.flex.mx-auto.text-white.bg-indigo-500.border-0.py-2.px-8.rounded.text-lg(class='focus:outline-none hover:bg-indigo-600' type='submit') Button
