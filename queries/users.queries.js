@@ -15,3 +15,11 @@ exports.createUser = async (user) => {
         throw e;
     }
 }
+
+exports.findUserPerMail = (email) => {
+    return users.findOne({ 'local.email ': email}).exec();
+}
+
+exports.findUserPerId = (id) => {
+    return users.findById(id).exec();
+}
