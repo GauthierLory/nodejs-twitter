@@ -5,6 +5,9 @@ header.text-gray-600.body-font
         path(d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5')
       span.ml-3.text-xl Tailblocks
     nav.flex.flex-wrap.items-center.text-base.justify-center(class='md:ml-auto')
-      a.mr-5(class='hover:text-gray-900' href="/tweets/new") Nouveau Tweet
-      a.mr-5(class='hover:text-gray-900' href="/auth/signin/form") Connexion
-      a.mr-5(class='hover:text-gray-900' href="/users/signup/form") Inscription
+      if isAuthenticated
+        a.mr-5(class='hover:text-gray-900' href="/tweets/new") Nouveau Tweet
+        a.mr-5(class='hover:text-gray-900' href="/auth/signout") Déconnexion
+      else
+        a.mr-5(class='hover:text-gray-900' href="/auth/signin/form") Connexion
+        a.mr-5(class='hover:text-gray-900' href="/users/signup/form") Inscription
