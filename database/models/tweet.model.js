@@ -7,6 +7,11 @@ const tweetSchema = schema({
         maxLength:[140, 'Tweet trop long'],
         minLength:[1, 'Tweet trop court !'],
         required: [true, 'Champ requis']
+    },
+    author: { 
+        type: schema.Types.ObjectId,
+        ref: 'user', 
+        required: true
     }
 });
 
