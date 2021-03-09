@@ -2,5 +2,9 @@ extends ../layout.pug
 
 block content
     script(src="/javascripts/tweets/tweet.js")
-    div(id="tweet-list-container")
-        include tweet-list.pug
+    section.text-gray-600.body-font
+    .container.px-5.py-24.mx-auto.flex.flex-col
+        .mx-auto(class='lg:w-4/6')
+        .flex.flex-col.mt-10(class='sm:flex-row')
+            include ../includes/profile.pug
+            include tweet-list.pug
