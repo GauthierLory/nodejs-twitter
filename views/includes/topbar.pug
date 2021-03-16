@@ -1,18 +1,31 @@
 script(src="javascripts/search-bar.js")
 link(rel="stylesheet" href="/css/topbar.css")
-header.text-gray-600.body-font
-  .container.mx-auto.flex.flex-wrap.p-5.flex-col.items-center(class='md:flex-row')
-    a.flex.title-font.font-medium.items-center.text-gray-900.mb-4(class='md:mb-0' href="/tweets")
-      svg.w-10.h-10.text-white.p-2.bg-indigo-500.rounded-full(xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewbox='0 0 24 24')
-        path(d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5')
-      span.ml-3.text-xl Twitter
-    nav.flex.flex-wrap.items-center.text-base.justify-center(class='md:ml-auto')
+
+nav.flex.items-center.justify-between.flex-wrap.bg-white.py-4.shadow.border-solid.border-t-2.border-indigo-700(class='lg:px-12')
+  .flex.justify-between.w-full.pl-6.pr-2.border-solid.border-b-2.border-gray-300.pb-5(class='lg:w-auto lg:border-b-0 lg:pb-0')
+    .flex.items-center.flex-shrink-0.text-gray-800.mr-16
+      a.font-semibold.text-xl.tracking-tight(href="/") My Tweeter
+    .block(class='lg:hidden')
+      button#nav.flex.items-center.px-3.py-2.border-2.rounded.text-indigo-700.border-indigo-700(class='hover:text-indigo-700 hover:border-indigo-700')
+        svg.fill-current.h-3.w-3(viewbox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+          title Menu
+          path(d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z')
+  .menu.w-full.flex-grow.px-8(class='lg:block lg:flex lg:items-center lg:w-auto lg:px-3')
+    .text-md.font-bold.text-indigo-700(class='lg:flex-grow')
+      a.block.mt-4.px-8.py-2.mr-4()
+
     if isAuthenticated
-      form
-        input.bg-purple-white.shadow.rounded.border-0.p-3(type="text" placeholder="Search..." id="search-input")
-        div(id="search-menu-container")
-      a.mr-5(class='hover:text-gray-900' href="/tweets/new") Nouveau Tweet
-      a.mr-5(class='hover:text-gray-900' href="/auth/signout") Déconnexion
+      a.block.text-md.px-4.py-2.rounded.text-indigo-700.mr-2.font-bold.mt-4(href='/tweets/new' class='hover:text-white hover:bg-indigo-700 lg:mt-0')
+        | Tweet
+      .relative.mx-auto.text-gray-600.hidden(class='lg:block')
+          form
+            input.border-2.border-gray-300.bg-white.h-10.pl-2.pr-8.rounded-lg.text-sm(class='focus:outline-none' type='text' placeholder='Search' id="search-input")
+            div(id="search-menu-container")
+      a.block.text-md.px-4.py-2.rounded.text-indigo-700.ml-2.font-bold.mt-4(href='/auth/signout' class='hover:text-white hover:bg-indigo-700 lg:mt-0')
+        | Déconnexion
     else
-      a.mr-5(class='hover:text-gray-900' href="/auth/signin/form") Connexion
-      a.mr-5(class='hover:text-gray-900' href="/users/signup/form") Inscription
+      .flex
+        a.block.text-md.px-4.py-2.rounded.text-indigo-700.ml-2.font-bold.mt-4(href='/users/signup/form' class='hover:text-white hover:bg-indigo-700 lg:mt-0')
+          | Inscription
+        a.block.text-md.px-4.ml-2.py-2.rounded.text-indigo-700.font-bold.mt-4(href='/auth/signin/form' class='hover:text-white hover:bg-indigo-700 lg:mt-0')
+          | Connexion

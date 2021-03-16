@@ -1,19 +1,22 @@
 script(src="/javascripts/profile.js")
-.text-center(class='sm:w-1/3 sm:pr-8 sm:py-8')
-    .w-40.h-40.rounded-full.inline-flex.items-center.justify-center
-        form(action="/users/update/image" method='post' enctype="multipart/form-data" id="form-container")
-            input.hidden(type='file' name='avatar' id="input-avatar")
-            image(src=user.avatar id="image-profile")
+.text-center(class='lg:w-1/4 sm:w-1/3 sm:pr-8 sm:py-8')
+    div.bg-white.rounded.pt-4
+        .w-40.h-40.rounded-full.inline-flex.items-center.justify-center
+            form(action="/users/update/image" method='post' enctype="multipart/form-data" id="form-container")
+                input.hidden(type='file' name='avatar' id="input-avatar")
+                image(src=user.avatar id="image-profile")
+        div
         if currentUser._id.toString() !== user._id.toString()
             if currentUser.following.map( objId => objId.toString()).includes(user._id.toString())
-                a(class="" href="/users/unfollow/" + user._id) unfollow
+                 a(class="focus:outline-none text-indigo-700 text-sm py-2.5 px-5 rounded-md border border-indigo-700 hover:bg-blue-50\" href=\"/users/follow/" href="/users/unfollow/" + user._id) unfollow
             else
-                a(class="" href="/users/follow/" + user._id) follow
-    .flex.flex-col.items-center.text-center.justify-center
-     h2.font-medium.title-font.mt-4.text-gray-900(class="text-lg")
-        p=`${ user.username } (${ user.local.email })`
-     .w-12.h-1.bg-indigo-500.rounded.mt-2.mb-4
-        p(class="text-base")= tweets && tweets.filter( t => t.author._id.toString() === user._id.toString()).length
-            strong Tweet
-        p(class="text-base")= user.following.length
-            strong Following
+                 a(class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-indigo-700 hover:bg-indigo-600 hover:shadow-lg" href="/users/follow/" + user._id) follow
+        h2.font-medium.title-font.mt-4.text-gray-900(class="text-lg")
+            p=`${ user.username } (${ user.local.email })`
+            .w-auto.h-1.border-indigo-700.rounded.border-t-2
+            .flex.flex-row.items-center.text-center.justify-center.mt-2
+                p(class="text-base mr-4")= tweets && tweets.filter( t => t.author._id.toString() === user._id.toString()).length
+                    strong Tweet
+                p(class="text-base")= user.following.length
+                    strong Following
+

@@ -3,7 +3,7 @@ extends ../layout.pug
 block content
     section.text-gray-600.body-font.relative
         .grid.grid-cols-3.gap-4.-m-2
-            .col-start-2.col-end-3
+            .col-start-2.col-end-3.bg-white.rounded.mt-10.px-5.py-5
                 h1.text-2xl.font-medium.title-font.mb-4.text-gray-900(class='sm:text-3xl') Connexion
                 .relative
                 form(method="POST" action="/auth/signin")
@@ -13,9 +13,9 @@ block content
                                 label(class="leading-7 text-sm text-red-600")= error
                     .relative.mb-4
                         label.leading-7.text-sm.text-gray-600(for='email') Email
-                        input#email.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='email' name='email' class='focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200')
+                        input#email.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='email' name='email' class='focus:border-indigo-700 focus:ring-2 focus:ring-indigo-200')
                     .relative.mb-4
                         label.leading-7.text-sm.text-gray-600(for='password') Password
-                        input#email.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='password' name='password' class='focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200')
+                        input#email.w-full.bg-white.rounded.border.border-gray-300.text-base.outline-none.text-gray-700.py-1.px-3.leading-8.transition-colors.duration-200.ease-in-out(type='password' name='password' class='focus:border-indigo-700 focus:ring-2 focus:ring-indigo-200')
                     .p-2.w-full
-                    button.flex.mx-auto.text-white.bg-indigo-500.border-0.py-2.px-8.rounded.text-lg(class='focus:outline-none hover:bg-indigo-600' type='submit') Connexion
+                    button.flex.mx-auto.text-white.bg-indigo-700.border-0.py-2.px-8.rounded.text-lg(class='focus:outline-none hover:bg-indigo-600' type='submit') Connexion
