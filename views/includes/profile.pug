@@ -4,9 +4,16 @@ script(src="/javascripts/profile.js")
         form(action="/users/update/image" method='post' enctype="multipart/form-data" id="form-container")
             input.hidden(type='file' name='avatar' id="input-avatar")
             image(src=user.avatar id="image-profile")
+        if currentUser._id.toString() !== user._id.toString()
+            if currentUser.following.map( objId => objId.toString()).includes(user._id.toString())
+                a(class="" href="/users/unfollow/" + user._id) unfollow
+            else
+                a(class="" href="/users/follow/" + user._id) follow
     .flex.flex-col.items-center.text-center.justify-center
      h2.font-medium.title-font.mt-4.text-gray-900(class="text-lg")
         p=`${ user.username } (${ user.local.email })`
      .w-12.h-1.bg-indigo-500.rounded.mt-2.mb-4
-     p.text-base
-        | () Tweet | () Following
+        p(class="text-base")= tweets && tweets.filter( t => t.author._id.toString() === user._id.toString()).length
+            strong Tweet
+        p(class="text-base")= user.following.length
+            strong Following
