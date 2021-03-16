@@ -1,6 +1,15 @@
 .border-gray-200.border-t.mt-4.pt-4.text-center(class='sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left')
   if tweets
     each tweet in tweets
-      p.leading-relaxed.text-lg.mb-4
-        a(href="/tweets/edit/" + tweet._id)= tweet.content
-      button(class="btn-danger text-white bg-red-400 rounded-md p-1" tweetId=tweet._id) Delete
+      //button(class="btn-danger text-white bg-red-400 rounded-md p-1" tweetId=tweet._id) Delete
+      .flex.items-center.flex-wrap.pb-4.mb-4.border-b-2.border-gray-100.mt-auto.w-full
+        a.inline-flex.items-center
+          img.w-12.h-12.rounded-full.flex-shrink-0.object-cover.object-center(alt='blog' src=tweet.author.avatar)
+          span.flex-grow.flex.flex-col.pl-4
+            span(class="title-font font-medium text-gray-900")= tweet.author.username
+        if editable && tweet.author._id.toString() === currentUser._id.toString()
+          span.text-gray-400.mr-3.inline-flex.items-center.ml-auto.leading-none.text-sm.pr-3.py-1.border-r-2.border-gray-200
+            a(class="text-green-500 inline-flex items-center fas fa-edit" href="/tweets/edit/" + tweet._id)
+          span.text-gray-400.inline-flex.items-center.leading-none.text-sm
+            i(class="text-red-500 inline-flex items-center fas fa-minus-circle" style="cursor: pointer" tweetId=tweet._id)
+      p(class="leading-relaxed mb-8")= tweet.content
