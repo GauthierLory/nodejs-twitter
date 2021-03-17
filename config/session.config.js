@@ -1,4 +1,5 @@
 const { app } = require('../app');
+require('dotenv').config()
 const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
 const mongoose = require('mongoose');
@@ -12,7 +13,7 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 * 14
     },
     store: MongoStore.create({
-        mongoUrl: '',
+        mongoUrl: process.env.URLMongo,
         ttl: 60 *60 * 24 * 14
     })
 }));
