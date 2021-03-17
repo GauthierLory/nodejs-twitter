@@ -1,8 +1,8 @@
-.text-center.mt-4(class='sm:w-2/3 sm:pl-2 sm:py-2 sm:border-t-0 sm:mt-0 sm:text-left')
+.text-center.mt-4(class='m:pl-2 sm:py-2 sm:border-t-0 sm:mt-0 sm:text-left')
   if tweets
     each tweet in tweets
       div.bg-white.rounded.px-4.py-4.mb-4
-        .flex.items-center.flex-wrap.border-b-2.border-gray-300.mt-auto.w-full
+        .flex.items-center.flex-wrap.border-b-2.border-gray-300.mt-auto
           a.inline-flex.items-center
             img.w-12.h-12.rounded-full.flex-shrink-0.object-cover.object-center(alt='blog' src=tweet.author.avatar)
             span.flex-grow.flex.flex-col.pl-4
@@ -11,5 +11,5 @@
             span.text-gray-400.mr-3.inline-flex.items-center.ml-auto.leading-none.text-sm.pr-3.py-1.border-r-2.border-gray-200
               a(class="text-green-500 inline-flex items-center fas fa-edit" href="/tweets/edit/" + tweet._id)
             span.text-gray-400.inline-flex.items-center.leading-none.text-sm
-              i(class="text-red-500 inline-flex items-center fas fa-minus-circle" style="cursor: pointer" tweetId=tweet._id)
+              i(class="text-red-500 inline-flex items-center fas fa-minus-circle" style="cursor: pointer" tweetid=tweet._id)
         p(class="leading-relaxed mb-8")= tweet.content
