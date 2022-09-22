@@ -1,35 +1,37 @@
-# NodeJs Twitter
-NodeJs twitter est un projet pour réécrire certaines des fonctionnalités de Twitter en utilisant une chaîne d'outils moderne basée sur javascript. Il s'agit principalement d'un projet pour apprendre Node.js, Express.js et MongoDB.
+# About the project
+NodeJs-twitter is a project to rewrite some of Twitter's functionality using a modern JavaScript-based tool chain. It's mainly a project to deepen my knowledge on Node.js, Express.js and MongoDB.
 
-## Prérequis
-Vous devez avoir installé Node.js et MongoDB si vous souhaitez exécuter l'application en local.
-Node.Js  **v14.15.1**
+**This project is outdated**
 
-## Usage
-     ~/ git clone https://github.com/GauthierLory/nodejs-twitter
-     ~/ cd ./ nodejs-twitter
-     ## Installe les dépendances
-     ~/ npm install
-     ## Build le fichier de tailwind
-     ~/ npx tailwindcss-cli@latest build ./styles/styles.css -o ./public/css/app.css
-     ## Lance l'app
-     ~/ npm start
+# Getting Started
+## Prerequisites
+You must have Node.js and MongoDB installed if you want to run the application locally.
+Node.js **v14.15.1**
 
-La configuration se trouve a `la racine`. Veuillez créer votre propre fichier `.env`. Vous pouvez trouver un exemple de fichier `.env` dans `.env.example`.
+## Installation
+1. Clone the project
+```bash
+git clone https://github.com/GauthierLory/nodejs-twitter
+```
+2. install dependencies
+```bash
+cd ./nodejs-twitter
+npm install
+```
+3. Configure env
 
- ## Fonctionnalités
- - [x] Inscription et connexion de l'utilisateur
- - [ ] Modification de profil de l'utilisateur
-	 - [ ] Nom prénom email
-	 - [x] Photo
-	 - [ ] Modification du mot de passe
-	 - [ ] Mot de passe oublié 
- - [x] Création de tweet
- - [x] Modification de tweet
- - [x] Suppression de tweet
- - [x] Possibilité de "Follow" ou de "Unfollow" un utilisateur
- - [x] Protection de routes
- - [x] Visiter le profil d'un utilisateur
+The configuration is in the `root`. Please create your own `.env` file.
 
+You can find an example of a `.env` file in `.env.example`.
+
+4. Build tailwindcss file
+```bash
+npx tailwindcss-cli@latest build ./styles/styles.css -o ./public/css/app.css
+```
+
+5. Launch application
+```bash
+npm run dev
+```
 ## Important
-Twitter est une marque déposée de Twitter Inc. Ce projet est destiné à des fins d'apprentissage et doit être traité comme tel.
+Twitter is a registered trademark of Twitter Inc. This project is intended for learning purposes and should be treated as such.
